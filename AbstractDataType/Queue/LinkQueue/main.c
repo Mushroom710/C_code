@@ -8,7 +8,7 @@ int value;
 int flag = false; //标记，用于判断是否退出程序
 
 void Menu(){
-    printf("\n1.初始化队列\n2.入队\n3.出队\n4.取队头元素\n6.输入其他数退出\n");
+    printf("\n1.初始化队列\n2.入队\n3.出队\n4.取队头元素\n5.show\n6.输入其他数退出\n");
     printf("请选择：");
 }
 
@@ -43,13 +43,13 @@ void main(){
         case 3:
             state = DeQueue(&q,&value);
             // printf("state的值：%d\n",state);
-            if (!state)
+            if (state)
             {
-                printf("队列空！！！\n");
+                printf("出队元素：%d\n", value);
             }
             else
             {
-                printf("出队元素：%d\n",value);
+                printf("队列空！！！\n");
             }
             break;
         case 4:
@@ -61,6 +61,7 @@ void main(){
             break;
         case 5:
             // printf("队列长度为：%d\n",QueueLength(q));
+            ShowQueue(q);
             break;
         default:
             flag = true;

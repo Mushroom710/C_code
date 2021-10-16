@@ -1,5 +1,8 @@
 #include "stdlib.h"
 #include "LinkQueueStruct.c"
+//如果main那里出错的话，注释掉这行即可
+// 这是给YangHuiTriQueue用的
+#include "stdio.h"
 
 typedef int Status;
 #define ok 1
@@ -29,13 +32,15 @@ Status EnQueue(LinkQueue* q,QElemType e){
 
 // 出队
 Status DeQueue(LinkQueue* q,QElemType* e){
-    if(q->front == q->rear){
+    // printf("%p,%p\n",q->front,q->rear);
+    if (q->front == q->rear)
+    {
         return error;
     }
-    QueuePtr p = q->front->next;
+    QNode* p = q->front->next;
     *e = p->data;
     q->front->next = p->next;
-    if(q->rear = p){//最后一个结点被删除
+    if(q->rear == p){//最后一个结点被删除，之前少写了一个等号，导致一直出错
         q->rear = q->front;
     }
     free(p);
@@ -48,4 +53,18 @@ QElemType GetHead(LinkQueue q){
     if(q.front != q.rear){
         return q.front->next->data;
     }
+}
+
+void ShowQueue(LinkQueue q){
+    // printf("%p,%p\n", q.front, q.rear);
+    QNode *p = q.front->next;
+    if(!p){
+        printf("队列空！\n");
+    }
+    while(p){
+        printf("%d\n",p->data);
+        p = p->next;
+    }
+    // printf("\nq.front->next->data：%d\n", q.front->next->data);
+    // printf("q.rear->data：%d\n", q.rear->data);
 }

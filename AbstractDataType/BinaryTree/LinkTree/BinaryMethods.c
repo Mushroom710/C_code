@@ -72,3 +72,25 @@ void SequenceTraversal(BiTree root)
         }
     }
 }
+
+// 前序创建一颗二叉树
+/**
+ * 说明：以字符 0 作为子树的结束
+ * 每一次读入一个字符
+ * 二叉树字符序列如：123004506007000
+ * 按先序次序输入二叉树中结点的值（单个字符），创建二叉树
+ * */ 
+void PreCreateTree(BiTree* root){
+    int val;
+    printf("读入字符(输入0表示当前子树结束)：");
+    scanf("%d", &val);
+    if(val == 0){//递归结束，建立空树
+        *root = NULL;
+    }else{
+        (*root) = (BiTNode *)malloc(sizeof(BiTNode));//生成当前子树的根结点
+        // **root->data = val;
+        (*root)->data = val;
+        PreCreateTree(&(*root)->lchild);
+        PreCreateTree(&(*root)->rchild);
+    }
+}

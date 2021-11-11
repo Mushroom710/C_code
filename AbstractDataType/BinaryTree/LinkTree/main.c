@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
-//这两个文件分开启用，同时启用回出一堆错误，暂时无法解决
+//这两个文件分开启用，同时启用会出一堆错误，暂时无法解决
 // #include "BinaryMethods.c" 
 #include "Iteration.c"
 
@@ -49,7 +49,7 @@ void main()
     // printf("\n");
 
     //这是使用先序遍历的顺序建立二叉树
-    BiTree root;
+    BiTree root,copyRoot;
     PreCreateTree(&root);
     // 这一段代码需要引入 BinaryMethod.c文件
     // 如果同时引入BinaryMethod.c和Iteration.c文件会报一堆不明错误
@@ -73,4 +73,12 @@ void main()
     IterationPre(root);
     printf("\n");
     printf("\n后序非递归遍历太复杂，暂时不会写：\n");
+    printf("复制一棵二叉树\n");
+    CopyTree(root,&copyRoot);
+    printf("\n遍历复制的二叉树：\n");
+    IterationPre(copyRoot);
+    printf("\n计算二叉树的深度:\n");
+    printf("深度为：%d\n",Depth(root));
+    printf("统计二叉树的结点个数：\n");
+    printf("结点个数为：%d\n",NodeCount(root));
 }

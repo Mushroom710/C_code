@@ -55,19 +55,21 @@ void SequenceTraversal(BiTree root)
         int size = QueueSize(queue);
         int i = 0;
         // 遍历这一层的结点
-        for (; i < size;i++)
+        for (; i < size; i++)
         {
             // 取出队列的第一个元素并打印
             BiTNode *node;
-            DeQueue(&queue,&node);
-            printf("%d\t",node->data);
+            DeQueue(&queue, &node);
+            printf("%d\t", node->data);
             // 判断这个结点的左子树是否空，若非空，就加入队列
-            if(node->lchild != NULL){
-                EnQueue(&queue,node->lchild);
+            if (node->lchild != NULL)
+            {
+                EnQueue(&queue, node->lchild);
             }
             // 判断这个结点的右子树是否空，若非空，就加入队列
-            if(node->rchild != NULL){
-                EnQueue(&queue,node->rchild);
+            if (node->rchild != NULL)
+            {
+                EnQueue(&queue, node->rchild);
             }
         }
     }
@@ -79,15 +81,19 @@ void SequenceTraversal(BiTree root)
  * 每一次读入一个字符
  * 二叉树字符序列如：123004506007000
  * 按先序次序输入二叉树中结点的值（单个字符），创建二叉树
- * */ 
-void PreCreateTree(BiTree* root){
+ * */
+void PreCreateTree(BiTree *root)
+{
     int val;
     printf("读入字符(输入0表示当前子树结束)：");
     scanf("%d", &val);
-    if(val == 0){//递归结束，建立空树
+    if (val == 0)
+    { //递归结束，建立空树
         *root = NULL;
-    }else{
-        (*root) = (BiTNode *)malloc(sizeof(BiTNode));//生成当前子树的根结点
+    }
+    else
+    {
+        (*root) = (BiTNode *)malloc(sizeof(BiTNode)); //生成当前子树的根结点
         // **root->data = val;
         (*root)->data = val;
         PreCreateTree(&(*root)->lchild);

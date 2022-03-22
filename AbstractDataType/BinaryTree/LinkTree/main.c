@@ -1,8 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 //这两个文件分开启用，同时启用会出一堆错误，暂时无法解决
-// #include "BinaryMethods.c" 
-#include "Iteration.c"
+#include "BinaryMethods.c" 
+// #include "Iteration.c"
 
 
 void main()
@@ -55,7 +55,7 @@ void main()
     // 如果同时引入BinaryMethod.c和Iteration.c文件会报一堆不明错误
     // 还是分开引入，省事
     // 启用这一截代码需要引入 BinaryMethod.c文件
-    /*printf("先序遍历：\n");
+    printf("先序遍历：\n");
     PreTraverse(root);
     printf("\n中序遍历：\n");
     InOrderTraverse(root);
@@ -63,22 +63,25 @@ void main()
     AfterTraverse(root);
     printf("\n层序遍历：\n");
     SequenceTraversal(root);
-    */
-
+    printf("\n二叉树的深度：%d\n", Depth(root));
+    printf("请输入待搜索的结点：");
+    int data;
+    scanf("%d",&data);
+    BFS(root,data);
     // 启用这一截代码需要引入 Iteration.c文件
-    printf("\n中序非递归遍历：\n");
-    IterationInOrder(root);
-    printf("\n");
-    printf("\n先序非递归遍历：\n");
-    IterationPre(root);
-    printf("\n");
-    printf("\n后序非递归遍历太复杂，暂时不会写：\n");
-    printf("复制一棵二叉树\n");
-    CopyTree(root,&copyRoot);
-    printf("\n遍历复制的二叉树：\n");
-    IterationPre(copyRoot);
-    printf("\n计算二叉树的深度:\n");
-    printf("深度为：%d\n",Depth(root));
-    printf("统计二叉树的结点个数：\n");
-    printf("结点个数为：%d\n",NodeCount(root));
+    // printf("\n中序非递归遍历：\n");
+    // IterationInOrder(root);
+    // printf("\n");
+    // printf("\n先序非递归遍历：\n");
+    // IterationPre(root);
+    // printf("\n");
+    // printf("\n后序非递归遍历太复杂，暂时不会写：\n");
+    // printf("复制一棵二叉树\n");
+    // CopyTree(root,&copyRoot);
+    // printf("\n遍历复制的二叉树：\n");
+    // IterationPre(copyRoot);
+    // printf("\n计算二叉树的深度:\n");
+    // printf("深度为：%d\n",Depth(root));
+    // printf("统计二叉树的结点个数：\n");
+    // printf("结点个数为：%d\n",NodeCount(root));
 }

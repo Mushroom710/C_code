@@ -70,6 +70,16 @@ void Select(HuffmanTree HT, int n)
             // }
         }
     }
+    int tmp;
+    // printf("%d--%d\n", idx[0], idx[1]);
+    if (idx[0] > idx[1])
+    {
+        tmp = idx[1];
+        // printf("%d\n",tmp);
+        idx[1] = idx[0];
+        idx[0] = tmp;
+    }
+    // printf("%d--%d\n", idx[0], idx[1]);
 }
 
 /**
